@@ -60,10 +60,9 @@
 # print(e**10)
 # potega=pow(math.log(5+math.sin(8)**2),1/6)
 # print(potega)
-# a=3.55
-# print(int(a))
-# b=4.80
-# print(int(b)+1)
+# import math
+# print(math.floor(3.55))
+# print(math.floor(4.80))
 #zad 5
 # imie="GABRIEL"
 # nazwisko="MAJEWSKI"
