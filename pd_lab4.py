@@ -67,7 +67,7 @@ class Robaczek:
         self.y = self.y + self.krok*ile
         return self.y
     def nadol(self,ile):
-        self.y=self.y - self.krok
+        self.y=self.y - self.krok*ile
         return self.y
     def wlewo(self,ile):
         self.x=self.x - self.krok*ile
