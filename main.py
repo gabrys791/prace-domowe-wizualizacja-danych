@@ -1,62 +1,50 @@
 import numpy as np
+import matplotlib.pyplot as plt
+import pandas as pd
 #zad1
-# a=np.arange(3)
-# print(a)
-# b=np.arange(3)
-# print(b)
-# print(a*b)
+# plt.subplots(1,2)
+# x=['A','B','C','D','E']
+# y=[-35,-20,-50,-35,-45]
+# y1=[37,37,40,31,35]
+# plt.subplot(1,2,1)
+# plt.barh(x,y,color=['lime','gold','blue','mediumpurple','indianred'])
+# plt.xticks(np.arange(-50,0,10))
+# plt.title('Wykres1')
+# plt.subplot(1,2,2)
+# plt.barh(x,y1,color=['darkkhaki','mediumpurple','darkorange','green','darkkhaki'])
+# plt.title('Wykres2')
+# plt.savefig('wykres1.pdf')
+# plt.show()
 #zad2
-# a=np.arange(9).reshape(3,3)
-# b=np.arange(16).reshape(4,4)
-# print(a)
-# print(b)
-# print(a.min(axis=0))
-# print(a.min(axis=1))
-# print(b.min(axis=0))
-# print(b.min(axis=1))
+# data=pd.read_csv('ceny3.csv',sep='#',decimal=',')
+# df=pd.DataFrame(data)
+# print(df.groupby('Rodzaje towarów i usług').agg({'Wartosc':['mean']}))
+# print(df)
+# maka=df[df['Rodzaje towarów i usług']=='mąka pszenna - za 1kg']
+# ryz=df[df['Rodzaje towarów i usług']=='ryż - za 1kg']
+# plt.bar(ryz['Miesiące'],ryz['Wartosc'],label='Ryż')
+# plt.bar(maka['Miesiące'],maka['Wartosc'],label='Mąka')
+# plt.xticks(rotation=45)
+# plt.legend()
+# plt.ylabel('wartość')
+# plt.xlabel('miesiące')
+# plt.title('Wartości ryżu i mąki')
+# plt.annotate(text='166292',xy=('grudzień',0.1))
+# plt.savefig('wykres2.jpg')
+# plt.show()
 #zad3
-# a=np.arange(3)
-# print(a)
-# b=np.arange(3)
-# print(b)
-# print(a.dot(b))
-#zad4
-# a=np.array([2,3,4])
-# b=np.array([2.5,2.3,1.2])
-# print(a*b)
-#zad5
-# b=np.arange(0,12,2).reshape(2,3)
-# print(b)
-# a=np.sin(b)
-# print(a)
-# #zad6
-# c=np.arange(0,18,3).reshape(2,3)
-# print(c)
-# b=np.cos(c)
-# print(b)
-
-#zad7
-# print(a+b)
-#zad8
-# a=np.arange(9).reshape(3,3)
-# for i in a:
-#     print(i)
-#zad9
-# a=np.arange(9).reshape(3,3)
-# print(a)
-# for i in a.flat:
-#     print(i)
-#zad10
-# a=np.arange(0,81).reshape(9,9)
-# print(a)
-# b=a.reshape(27,3)
-# print(b)
-#zad11
-a=np.arange(12)
-print(a)
-b=a.reshape(3,4)
-print(b)
-c=a.reshape(4,3)
-print(c)
-d=a.reshape(2,6)
-print(d)
+data=pd.read_excel('handel3.xlsx',header=None)
+data=data.transpose()
+print(data)
+rok16=data[data[1]=='2016']
+rok17=data[data[1]=='2017']
+print(rok16)
+plt.subplots(1,2)
+plt.subplot(1,2,1)
+plt.pie(rok16[2],labels=rok16[0],startangle=60,rotatelabels=True,autopct='%1.1f%%')
+plt.title('2016')
+plt.subplot(1,2,2)
+plt.pie(rok17[2],labels=rok17[0],startangle=45,rotatelabels=True,autopct='%1.1f%%')
+plt.title('2017')
+plt.savefig('wykres3.png')
+plt.show()
